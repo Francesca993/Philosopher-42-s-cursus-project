@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_threads.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 14:50:56 by francesca         #+#    #+#             */
-/*   Updated: 2025/04/09 10:10:57 by francesca        ###   ########.fr       */
+/*   Updated: 2025/04/09 12:16:24 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int create_threads(t_data *data)
             return (1);
         }
         i++;
-        if (pthread_create(&data->monitor_thread, NULL, &monitor_routine, data) != 0)
-        {
-            printf("Error creating monitor thread.\n");
-            return (1);
-        }
+    }
+    if (pthread_create(&data->monitor_thread, NULL, &monitor_routine, data) != 0)
+    {
+        printf("Error creating monitor thread.\n");
+        return (1);
     }
     return (0);
 }

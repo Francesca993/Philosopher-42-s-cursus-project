@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_routine.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 15:29:13 by francesca         #+#    #+#             */
-/*   Updated: 2025/04/07 21:36:03 by francesca        ###   ########.fr       */
+/*   Updated: 2025/04/09 14:07:03 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,17 @@ long	get_time(void)
 void *routine(void *arg)
 {
     t_philo *philo = (t_philo *)arg;
-
+    if (philo->data->number_of_philos == 1)
+    {
+    pthread_mutex_lock(philo->left_fork);
+    print_status(philo, "has taken a fork");
+    // Nessuna seconda forchetta disponibile, aspetta la morte
+    usleep(philo->data->time_to_die * 1000);
+    pthread_mutex_unlock(philo->left_fork);
+    return (NULL);
+    }
     if (philo->id % 2 == 0)
-        usleep(1000); // piccoli delay per evitare deadlock iniziali
+        usleep(5000); // piccoli delay per evitare deadlock iniziali
 
     while (!philo->data->someone_died)
     {

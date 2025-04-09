@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 11:27:49 by francesca         #+#    #+#             */
-/*   Updated: 2025/04/09 10:18:47 by francesca        ###   ########.fr       */
+/*   Updated: 2025/04/09 12:12:35 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_data {
 	int             meals_required;     // Quante volte ogni filosofo deve mangiare (opzionale)
 	long            start_time;         // Timestamp di inizio simulazione
 	int             someone_died;               // Flag: qualcuno è morto? (1 sì, 0 no)
+	int				all_ate;
 	pthread_mutex_t *forks;             // Array di mutex per le forchette
 	pthread_mutex_t print_mutex;        // Mutex per stampare i log senza overlap
 	pthread_t monitor_thread;           // thread per monitorare la morte dei filosofi

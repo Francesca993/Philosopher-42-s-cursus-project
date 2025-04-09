@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 16:00:02 by francesca         #+#    #+#             */
-/*   Updated: 2025/04/07 21:32:46 by francesca        ###   ########.fr       */
+/*   Updated: 2025/04/09 12:03:24 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void    print_status(t_philo *philo, char *msg)
 {
     pthread_mutex_lock(&philo->data->print_mutex);
     if (!philo->data->someone_died)
-        printf("Timestamp: %ld, Philosopher %d %s\n", get_time() - philo->data->start_time, philo->id, msg);
+        printf("%ld, %d %s\n", get_time() - philo->data->start_time, philo->id, msg);
     pthread_mutex_unlock(&philo->data->print_mutex);
 }
 

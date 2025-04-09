@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: francesca <francesca@student.42.fr>        +#+  +:+       +#+         #
+#    By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 14:23:25 by francesca         #+#    #+#              #
-#    Updated: 2025/04/09 10:17:55 by francesca        ###   ########.fr        #
+#    Updated: 2025/04/09 11:59:47 by fmontini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC	=	philosophers.c \
 		ft_free_all.c \
 		ft_routine.c \
 		routine_utils.c \
-		ft_someone_died.c \
+		monitor_routine.c \
 		ft_join.c \
 
 # .c to .o compilation

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 11:55:25 by francesca         #+#    #+#             */
-/*   Updated: 2025/04/07 14:45:38 by francesca        ###   ########.fr       */
+/*   Updated: 2025/04/09 14:14:43 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ static void ft_init_mutex(t_data *data)
 
 static int check_values(t_data *data, int argc)
 {
-    if (data->number_of_philos < 1 || data->time_to_die <= 0 || data->time_to_eat <= 0 || data->time_to_sleep <= 0 || ((argc == 6) && data->meals_required <= 0))
+    if (data->number_of_philos < 1 ||
+        data->time_to_die <= 0 ||
+        data->time_to_eat <= 0 ||
+        data->time_to_sleep <= 0)
+        return (1);
+    if (argc == 6 && data->meals_required <= 0)
         return (1);
     return (0);
 }
@@ -67,6 +72,7 @@ int init_data(t_data *data, int argc, char **argv)
     else
         data->meals_required = -1;
     data->someone_died = 0;
+    data->all_ate = 0;
     data->start_time = 0;
     if (check_values(data, argc) == 1)
         return (1);

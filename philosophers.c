@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 11:45:21 by francesca         #+#    #+#             */
-/*   Updated: 2025/04/09 10:16:48 by francesca        ###   ########.fr       */
+/*   Updated: 2025/04/09 14:09:24 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int main(int argc, char **argv)
 {
     t_data data;
+    data.forks = NULL;
+    data.philos = NULL;
     
     if ((argc != 5) && (argc != 6))
     {
