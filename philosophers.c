@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 11:45:21 by francesca         #+#    #+#             */
-/*   Updated: 2025/04/07 15:54:05 by francesca        ###   ########.fr       */
+/*   Updated: 2025/04/09 10:16:48 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ int main(int argc, char **argv)
         free_all(&data);
         return (1);
     }
-    sleep(5); // aspetta 5 secondi per osservare i thread
-
-    // (PROSSIMAMENTE) 4. Avvio simulazione
-
-    // (PROSSIMAMENTE) 5. Cleanup (free, destroy mutex)
-
+    // 🧵 Aspetta la fine dei thread
+	join_threads(&data);
+	// 🧹 Pulisce tutto
+	free_all(&data);
     return (0);
 }

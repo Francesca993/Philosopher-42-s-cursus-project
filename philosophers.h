@@ -6,7 +6,7 @@
 /*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 11:27:49 by francesca         #+#    #+#             */
-/*   Updated: 2025/04/07 21:12:38 by francesca        ###   ########.fr       */
+/*   Updated: 2025/04/09 10:18:47 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_data {
 	int             someone_died;               // Flag: qualcuno è morto? (1 sì, 0 no)
 	pthread_mutex_t *forks;             // Array di mutex per le forchette
 	pthread_mutex_t print_mutex;        // Mutex per stampare i log senza overlap
+	pthread_t monitor_thread;           // thread per monitorare la morte dei filosofi
 	t_philo         *philos;            // Array di filosofi
 } t_data;
 
@@ -64,5 +65,7 @@ void	take_forks(t_philo *philo);
 void    drop_forks(t_philo *philo);
 void    eat(t_philo *philo);
 void	sleep_and_think(t_philo *philo);
+void    *monitor_routine(void *arg);
+void	join_threads(t_data *data);
 
 #endif
